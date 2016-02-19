@@ -1,0 +1,9 @@
+{
+  "owner": "USER_NAME",
+  "repo": "REPO_NAME",
+  "repository": "user/repo",
+  "credentials": {
+    "username": "USER_NAME",
+    "password": "PASSWORD"
+  }
+}

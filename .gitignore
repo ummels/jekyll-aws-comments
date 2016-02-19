@@ -1,0 +1,9 @@
+config.json
+dist.zip
+dist
+logs
+*.log
+node_modules
+npm-debug.log*
+.npm
+.node_repl_history

@@ -1,0 +1,42 @@
+{
+  "name": "aws-jekyll-comments",
+  "version": "1.0.0",
+  "description": "Static comments with Jekyll, Github and AWS Lambda",
+  "main": "comments.js",
+  "scripts": {
+    "test": "node test.js",
+    "zip": "zip -r aws-jekyll-comments.zip index.js config.json node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ummels/aws-jekyll-comments.git"
+  },
+  "keywords": [
+    "jekyll",
+    "github",
+    "aws",
+    "comments"
+  ],
+  "author": "Michael Ummels <michael@ummels.de>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ummels/aws-jekyll-comments/issues"
+  },
+  "homepage": "https://github.com/ummels/aws-jekyll-comments#readme",
+  "private": true,
+  "dependencies": {
+    "js-md5": "^0.4.0",
+    "moment": "^2.11.2",
+    "octokat": "^0.4.16"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.8.10",
+    "gulp-awslambda": "^0.3.0",
+    "gulp-install": "^0.6.0",
+    "gulp-zip": "^3.1.0"
+  },
+  "engines": {
+    "node": ">= 0.10.36"
+  }
+}
