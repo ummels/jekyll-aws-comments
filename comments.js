@@ -30,7 +30,7 @@ exports.submit = function(event) {
   })
   .then(function () { // Create pull request
     return repo.pulls.create({
-      title: 'New comment',
+      title: 'New comment from ' + name,
       body: name + ' commented on \'' + event.postId + '\'.',
       head: branch,
       base: 'master'
