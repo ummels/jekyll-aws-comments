@@ -14,7 +14,7 @@ exports.submit = function(event) {
   var commentId = date.format('YYYYMMDDTHHmmss');
   var branch = 'comment-' + commentId;
   
-  return repo.git.refs.heads('master').fetch()
+  return repo.git.refs.heads(config.base).fetch()
   .then(function(ref) { // Crete new comment branch
     return repo.git.refs.create({
       ref: 'refs/heads/' + branch,
@@ -33,7 +33,7 @@ exports.submit = function(event) {
       title: 'New comment from ' + name,
       body: name + ' commented on \'' + event.postId + '\'.',
       head: branch,
-      base: 'master'
+      base: config.base
     });
   })
   .then(function (pull) {

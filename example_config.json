@@ -1,6 +1,7 @@
 {
   "owner": "USER_NAME",
   "repo": "REPO_NAME",
+  "base": "master",
   "credentials": {
     "username": "USER_NAME",
     "password": "PASSWORD"
