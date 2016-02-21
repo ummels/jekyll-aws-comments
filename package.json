@@ -1,5 +1,5 @@
 {
-  "name": "aws-jekyll-comments",
+  "name": "jekyll-aws-comments",
   "version": "1.0.0",
   "description": "Static comments for Jekyll with AWS Lambda and GitHub",
   "main": "comments.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ummels/aws-jekyll-comments.git"
+    "url": "https://github.com/ummels/jekyll-aws-comments.git"
   },
   "keywords": [
     "jekyll",
@@ -19,9 +19,9 @@
   "author": "Michael Ummels <michael@ummels.de>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ummels/aws-jekyll-comments/issues"
+    "url": "https://github.com/ummels/jekyll-aws-comments/issues"
   },
-  "homepage": "https://github.com/ummels/aws-jekyll-comments#readme",
+  "homepage": "https://github.com/ummels/jekyll-aws-comments#readme",
   "private": true,
   "dependencies": {
     "js-md5": "^0.4.0",
