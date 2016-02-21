@@ -1,7 +1,7 @@
 {
   "name": "aws-jekyll-comments",
   "version": "1.0.0",
-  "description": "Static comments with Jekyll, Github and AWS Lambda",
+  "description": "Static comments for Jekyll with AWS Lambda and GitHub",
   "main": "comments.js",
   "scripts": {
     "test": "node test.js"
@@ -12,8 +12,8 @@
   },
   "keywords": [
     "jekyll",
-    "github",
     "aws",
+    "github",
     "comments"
   ],
   "author": "Michael Ummels <michael@ummels.de>",
