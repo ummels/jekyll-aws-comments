@@ -5,11 +5,10 @@
   "main": "comments.js",
   "scripts": {
     "test": "node test.js",
-    "zip": "zip -r aws-jekyll-comments.zip index.js config.json node_modules"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ummels/aws-jekyll-comments.git"
+    "url": "https://github.com/ummels/aws-jekyll-comments.git"
   },
   "keywords": [
     "jekyll",
