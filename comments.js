@@ -1,11 +1,18 @@
 var Octokat = require('octokat');
 var moment = require('moment');
 var md5 = require('js-md5');
-var config = require('./config.json');
-var octo = new Octokat(config.credentials);
-var repo = octo.repos(config.owner, config.repo);
 
-exports.submit = function(event) {
+module.exports = Comments;
+
+function Comments(config) {
+  var octo = new Octokat(config.credentials);
+  this.repo = octo.repos(config.owner, config.repo);
+  this.base = config.base;
+}
+
+Comments.prototype.submit = function(event) {
+  var repo = this.repo;
+  var base = this.base;
   var date = moment.utc();
   var email = event.email.trim().toLowerCase();
   var homepage = parseUrl(event.url.trim());
@@ -14,7 +21,7 @@ exports.submit = function(event) {
   var commentId = date.format('YYYYMMDDTHHmmss');
   var branch = 'comment-' + commentId;
   
-  return repo.git.refs.heads(config.base).fetch()
+  return repo.git.refs.heads(base).fetch()
   .then(function(ref) { // Crete new comment branch
     return repo.git.refs.create({
       ref: 'refs/heads/' + branch,
@@ -33,7 +40,7 @@ exports.submit = function(event) {
       title: 'New comment from ' + name,
       body: name + ' commented on \'' + event.postId + '\'.',
       head: branch,
-      base: config.base
+      base: base
     });
   })
   .then(function (pull) {
