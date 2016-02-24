@@ -7,7 +7,7 @@ var context = {
     process.exit(0);
   },
   fail: function(err) {
-    console.log('Failure with error:', err.message);
+    console.log('Failure with error:', err.toString());
     process.exit(1);
   },
   done: function(error, result) {
