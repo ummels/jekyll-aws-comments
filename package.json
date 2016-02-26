@@ -26,7 +26,7 @@
   "dependencies": {
     "js-md5": "^0.4.0",
     "moment": "^2.11.2",
-    "octokat": "^0.4.16"
+    "octokat": "^0.4.17"
   },
   "devDependencies": {
     "del": "^2.2.0",
