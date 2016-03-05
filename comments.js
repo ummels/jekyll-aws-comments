@@ -15,7 +15,7 @@ Comments.prototype.submit = function(event) {
   var base = this.base;
   var date = moment.utc();
   var email = event.email.trim().toLowerCase();
-  var homepage = parseUrl(event.url.trim());
+  var homepage = parseUrl(event.url);
   var name = event.name.trim();
   var content = pack(event.postId, date, name, homepage, email, event.comment.trim());
   var commentId = date.format('YYYYMMDDTHHmmss');
@@ -63,9 +63,10 @@ function parseUrl(url) {
   if (!url) {
     return "";
   } else {
-    if (url.toLowerCase().substring(0, 4) === 'http')
-      return url;
+    var url1 = url.trim();
+    if (url1.toLowerCase().substring(0, 4) === 'http')
+      return url1;
     else
-      return 'http://' + url;
+      return 'http://' + url1;
   }
 }
