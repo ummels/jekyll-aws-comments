@@ -42,17 +42,17 @@ Please go through the following steps to include Jekyll AWS Comments on your Jek
       data: JSON.stringify({
         name: NAME, // Name of the commenter
         email: EMAIL, // Email address of the commenter
-		    url: URL, // Web address of the commenter (optional)
-		    pageId: PAGE_ID, // ID of the relevant post or page
-		    comment: COMENT // Comment
-	    }),
-	    dataType: 'json',
-	    success: function (url) {
+        url: URL, // Web address of the commenter (optional)
+        pageId: PAGE_ID, // ID of the relevant post or page
+        comment: COMENT // Comment
+      }),
+      dataType: 'json',
+      success: function (url) {
         // Inform the user of the pull request
-	    },
-	    error: function () {
+      },
+      error: function () {
         // Tell the user there was an error
-	    }
+      }
     });
     ```
 
@@ -67,7 +67,7 @@ Please go through the following steps to include Jekyll AWS Comments on your Jek
       {% for comment in page.comments %}
       <li>
         <div class="comment-author">
-          <img class="comment-avatar" src="https://secure.gravatar.com/avatar/{{ comment.mail_hash }}?s=60&amp;d=mm" alt="{{ comment.name }}">
+          <img src="https://secure.gravatar.com/avatar/{{ comment.mail_hash }}?s=60&amp;d=mm" alt="{{ comment.name }}">
           {% if comment.homepage %}
           <a href="{{ comment.homepage }}" class="commenter">{{ comment.name }}</a>
           {% else %}
@@ -75,7 +75,7 @@ Please go through the following steps to include Jekyll AWS Comments on your Jek
           {% endif %}
         </div>
         <div class="comment-meta">
-          <time datetime="{{ comment.date | date_to_xmlschema }}">{{ comment.date | date_to_long_string }}</time>
+          <time datetime="{{ comment.date | date_to_xmlschema }}">{{ comment.date | date_to_string }}</time>
         </div>
         <div class="comment-content">
           {{ comment.output }}
