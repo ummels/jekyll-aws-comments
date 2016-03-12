@@ -41,11 +41,11 @@ module Comments
     @comments = Hash.new() { |h, k| h[k] = Array.new }
 
     for comment in comments
-      @comments[comment['post_id']] << comment
+      @comments[comment['page_id']] << comment
     end
   end
 
-  def self.get(post_id)
-    @comments[post_id]
+  def self.get(page_id)
+    @comments[page_id]
   end
 end

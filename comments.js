@@ -17,7 +17,7 @@ Comments.prototype.submit = function(event) {
   var email = event.email.trim().toLowerCase();
   var homepage = parseUrl(event.url);
   var name = event.name.trim();
-  var content = pack(event.postId, date, name, homepage, email, event.comment.trim());
+  var content = pack(event.pageId, date, name, homepage, email, event.comment.trim());
   var commentId = date.format('YYYYMMDDTHHmmss');
   var branch = 'comment-' + commentId;
   
@@ -48,9 +48,9 @@ Comments.prototype.submit = function(event) {
   });
 };
 
-function pack(postId, date, name, homepage, email, comment) {
+function pack(pageId, date, name, homepage, email, comment) {
   return '---\n' +
-    'post_id: ' + postId + '\n' +
+    'page_id: ' + pageId + '\n' +
     'date: ' +  date.toISOString() + '\n' +
     'name: ' + name + '\n' +
     'homepage: ' + homepage + '\n' +
