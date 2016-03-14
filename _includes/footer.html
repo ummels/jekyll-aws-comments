@@ -6,10 +6,7 @@
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
+        <span>&copy; {{ site.time | date: '%Y' }} {{ site.author }}</span>
       </div>
 
       <div class="footer-col footer-col-2">
@@ -26,10 +23,6 @@
           </li>
           {% endif %}
         </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
       </div>
     </div>
 

@@ -91,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: darken($brand-color, 15%);
     text-decoration: none;
 
     &:visited {
@@ -99,7 +99,7 @@ a {
     }
 
     &:hover {
-        color: $text-color;
+        color: darken($brand-color, 15%);
         text-decoration: underline;
     }
 }
@@ -130,9 +130,10 @@ blockquote {
 pre,
 code {
     font-size: 15px;
+    font-family: "Roboto Mono";
     border: 1px solid $grey-color-light;
     border-radius: 3px;
-    background-color: #eef;
+    background-color: #eee;
 }
 
 code {
@@ -200,7 +201,7 @@ pre {
         vertical-align: middle;
 
         path {
-            fill: $grey-color;
+            fill: $background-color;
         }
     }
 }

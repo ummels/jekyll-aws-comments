@@ -1,6 +1,8 @@
 # Site settings
-title: jekyll-aws-comments
+title: Jekyll AWS Comments
 description: Static Comments for Jekyll with AWS Lambda and GitHub
+author: Michael Ummels
+github_username: ummels
 
 # Build settings
 markdown: kramdown
@@ -9,3 +11,5 @@ highlighter: rouge
 kramdown:
   input: GFM
   hard_wrap: false
+
+exclude: [node_modules, dist, dist.zip]
