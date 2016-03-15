@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/ummels/jekyll-aws-comments/issues"
   },
-  "homepage": "https://github.com/ummels/jekyll-aws-comments#readme",
+  "homepage": "http://ummels.github.io/jekyll-aws-comments",
   "private": true,
   "dependencies": {
     "js-md5": "^0.4.0",
