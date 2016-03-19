@@ -87,4 +87,6 @@ Please go through the following steps to include Jekyll AWS Comments on your Jek
     ```
     {% endraw %}
 
-10.  Redeploy your site and look forward to your first comment.
+    There is also a variable `page.comment_count` that contains the number of comments for the given page.
+
+10. Redeploy your site and look forward to your first comment.
