@@ -22,30 +22,25 @@ Comments.prototype.submit = function(event) {
   var branch = 'comment-' + commentId;
   
   return repo.git.refs.heads(base).fetch()
-  .then(function(ref) { // Crete new comment branch
-    return repo.git.refs.create({
+  .then(ref => // Crete new comment branch
+    repo.git.refs.create({
       ref: 'refs/heads/' + branch,
       sha: ref.object.sha
-    });
-  })
-  .then(function() { // Commit comment file
-    return repo.contents('_comments/' + commentId + '.md').add({
+    }))
+  .then(() => // Commit comment file
+    repo.contents('_comments/' + commentId + '.md').add({
       message: 'Add comment',
       content: new Buffer(content, 'utf8').toString('base64'),
       branch: branch
-    });
-  })
-  .then(function () { // Create pull request
-    return repo.pulls.create({
+    }))
+  .then(() => // Create pull request
+    repo.pulls.create({
       title: 'New comment from ' + name,
       body: name + ' commented on \'' + event.postId + '\'.',
       head: branch,
       base: base
-    });
-  })
-  .then(function (pull) {
-    return pull.htmlUrl;
-  });
+    }))
+  .then(pull => pull.htmlUrl);
 };
 
 function pack(pageId, date, name, homepage, email, comment) {
