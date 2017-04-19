@@ -5,37 +5,39 @@ var del = require('del');
 var install = require('gulp-install');
 
 var lambdaParams = {
-	FunctionName: 'processComment',
-	Role: 'arn:aws:iam::437205210840:role/lambda_basic_execution'
+  FunctionName: 'processComment',
+  Role: 'arn:aws:iam::437205210840:role/lambda_basic_execution',
+  Handler: 'index.handler',
+  Runtime: 'nodejs6.10'
 };
 var awsOpts = {
   region: 'us-west-2'
 }
 
-gulp.task('clean', function() {
-  return del(['./dist', './dist.zip']);
-});
+gulp.task('clean', () =>
+  del(['./dist', './dist.zip'])
+);
 
-gulp.task('js', function() {
-  return gulp.src(['index.js', 'comments.js', 'config.json'])
-    .pipe(gulp.dest('dist/'));
-});
+gulp.task('js', () =>
+  gulp.src(['index.js', 'comments.js', 'config.json'])
+      .pipe(gulp.dest('dist/'))
+);
 
-gulp.task('node-modules', function() {
-  return gulp.src('./package.json')
-    .pipe(gulp.dest('dist/'))
-    .pipe(install({production: true}));
-});
+gulp.task('node-modules', () =>
+  gulp.src('./package.json')
+      .pipe(gulp.dest('dist/'))
+      .pipe(install({production: true}))
+);
 
-gulp.task('zip', ['js', 'node-modules'], function() {
-  return gulp.src(['dist/**/*', '!dist/package.json'])
-    .pipe(zip('dist.zip'))
-    .pipe(gulp.dest('./'));
-});
+gulp.task('zip', ['js', 'node-modules'], () =>
+  gulp.src(['dist/**/*', '!dist/package.json'])
+      .pipe(zip('dist.zip'))
+      .pipe(gulp.dest('./'))
+);
 
-gulp.task('deploy', ['zip'], function() {
-  return gulp.src('dist.zip')
-    .pipe(lambda(lambdaParams, awsOpts))
-});
+gulp.task('deploy', ['zip'], () =>
+  gulp.src('dist.zip')
+      .pipe(lambda(lambdaParams, awsOpts))
+);
 
 gulp.task('default', ['zip']);
