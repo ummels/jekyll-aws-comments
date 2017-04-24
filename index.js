@@ -8,10 +8,12 @@ exports.handler = function(event, context, callback) {
     .then(function(url) {
       callback(null, url);
     })
-    .catch(function(err) {
-      callback(err);
+    .catch(function(e) {
+      console.error(e);
+      callback('Server Error');
     });
-  } catch(err) {
-    callback(err);
+  } catch(e) {
+    console.error(e);
+    callback('Bad Request');
   }
 }
