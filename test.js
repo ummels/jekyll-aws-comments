@@ -1,12 +1,10 @@
-var Comments = require('./comments.js');
-var config = require('./config.json');
+var index = require('./index.js');
 var event = require('./test_event.json');
-var comments = new Comments(config);
 
-comments.submit(event)
-.then(function(url) {
-  console.log(url);
-})
-.catch(function(err) {
-  console.log(err);
-});
+index.handler(event, null, ((err, res) => {
+  if (err === null) {
+    console.log('==> ' + res);
+  } else {
+    console.error('==> ' + err);
+  }
+}));
