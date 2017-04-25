@@ -36,7 +36,7 @@ Comments.prototype.submit = function(event) {
   .then(() => // Create pull request
     repo.pulls.create({
       title: 'New comment from ' + name,
-      body: name + ' commented on \'' + event.postId + '\'.',
+      body: name + ' commented on \'' + event.pageId + '\'.',
       head: branch,
       base: base
     }))
