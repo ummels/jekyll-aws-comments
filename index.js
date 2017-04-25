@@ -1,9 +1,13 @@
-var Comments = require('./comments.js');
-var config = require('./config.json');
+const Comments = require('./comments.js');
+const config = require('./config.json');
+const util = require('util');
 
 exports.handler = function(event, context, callback) {
   try {
-    var comments = new Comments(config);
+    console.log('Config: ' + util.inspect(config, { depth: 0 }));
+    const comments = new Comments(config);
+    console.log('Event: ' + util.inspect(event));
+    console.log('Connecting to GitHub...');
     comments.submit(event)
     .then(function(url) {
       callback(null, url);

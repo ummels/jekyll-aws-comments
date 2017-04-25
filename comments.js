@@ -1,25 +1,25 @@
-var Octokat = require('octokat');
-var moment = require('moment');
-var md5 = require('js-md5');
+const Octokat = require('octokat');
+const moment = require('moment');
+const md5 = require('js-md5');
 
 module.exports = Comments;
 
 function Comments(config) {
-  var octo = new Octokat(config.credentials);
+  const octo = new Octokat(config.credentials);
   this.repo = octo.repos(config.owner, config.repo);
   this.base = config.base;
 }
 
 Comments.prototype.submit = function(event) {
-  var repo = this.repo;
-  var base = this.base;
-  var date = moment.utc();
-  var email = event.email.trim().toLowerCase();
-  var homepage = parseUrl(event.url);
-  var name = event.name.trim();
-  var content = pack(event.pageId, date, name, homepage, email, event.comment.trim());
-  var commentId = date.format('YYYYMMDDTHHmmss');
-  var branch = 'comment-' + commentId;
+  const repo = this.repo;
+  const base = this.base;
+  const date = moment.utc();
+  const email = event.email.trim().toLowerCase();
+  const homepage = parseUrl(event.url);
+  const name = event.name.trim();
+  const content = pack(event.pageId, date, name, homepage, email, event.comment.trim());
+  const commentId = date.format('YYYYMMDDTHHmmss');
+  const branch = 'comment-' + commentId;
   
   return repo.git.refs.heads(base).fetch()
   .then(ref => // Crete new comment branch
@@ -58,7 +58,7 @@ function parseUrl(url) {
   if (!url) {
     return "";
   } else {
-    var url1 = url.trim();
+    const url1 = url.trim();
     if (url1.toLowerCase().substring(0, 4) === 'http')
       return url1;
     else
